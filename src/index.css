@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Default / Polo Cruz brand: blues from logo */
+  :root, .theme-polocruz {
+    --background: 210 45% 97%;
+    --foreground: 210 50% 12%;
+    --card: 210 45% 97%;
+    --card-foreground: 210 50% 12%;
+    --popover: 210 45% 97%;
+    --popover-foreground: 210 50% 12%;
+    --primary: 210 50% 12%;
+    --primary-foreground: 210 45% 97%;
+    --secondary: 200 55% 88%;
+    --secondary-foreground: 210 50% 12%;
+    --muted: 200 40% 92%;
+    --muted-foreground: 210 20% 45%;
+    --accent: 200 85% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 205 35% 80%;
+    --input: 205 35% 80%;
+    --ring: 200 85% 45%;
+    --radius: 0.25rem;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* Polo Cruz SRL tokens */
+    --polo-dark:  #0D3D5C;
+    --polo-mid:   #1B6CA8;
+    --polo-light: #2AACE2;
+    --polo-pale:  #D6EDF8;
+    --polo-bg:    #EEF6FB;
+  }
+
+  /* Mil Sabores brand theme */
+  .theme-milsabores {
+    --background: 33 15% 15%;          /* #2B2620 */
+    --foreground: 30 15% 92%;
+    --card: 33 15% 15%;
+    --card-foreground: 30 15% 92%;
+    --popover: 33 15% 17%;
+    --popover-foreground: 30 15% 92%;
+    --primary: 26 76% 62%;             /* #E89557 naranja */
+    --primary-foreground: 33 15% 15%;
+    --secondary: 33 12% 19%;
+    --secondary-foreground: 30 15% 92%;
+    --muted: 33 12% 19%;
+    --muted-foreground: 30 12% 68%;
+    --accent: 26 76% 62%;
+    --accent-foreground: 33 15% 15%;
+    --destructive: 0 50% 45%;
+    --destructive-foreground: 30 15% 92%;
+    --border: 30 18% 28%;
+    --input: 30 18% 28%;
+    --ring: 26 76% 62%;
+    --radius: 0.5rem;
+    --font-heading: 'Cormorant Garamond', ui-serif, Georgia, serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  }
+
+  /* Torta Express brand theme */
+  .theme-tortaexpress {
+    --background: 270 40% 98.5%;
+    --foreground: 266 49% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 266 49% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 266 49% 15%;
+    --primary: 271 100% 60%;          /* #9B30FF */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 275 30% 93%;
+    --secondary-foreground: 275 86% 25%;
+    --muted: 275 20% 94%;
+    --muted-foreground: 270 12% 45%;
+    --accent: 333 80% 58%;           /* #E83E8C */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 275 86% 36%;
+    --yellow: 47 100% 62%;
+    --radius: 0.5rem;
+    --font-heading: "DM Serif Display", ui-serif, Georgia, serif;
+    --font-body: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "DM Serif Display", ui-serif, Georgia, serif;
+  }
+
+  .dark {
+    --background: 210 50% 8%;
+    --foreground: 210 40% 94%;
+    --card: 210 50% 11%;
+    --card-foreground: 210 40% 94%;
+    --popover: 210 50% 8%;
+    --popover-foreground: 210 40% 94%;
+    --primary: 210 40% 94%;
+    --primary-foreground: 210 50% 8%;
+    --secondary: 210 25% 18%;
+    --secondary-foreground: 210 40% 94%;
+    --muted: 210 25% 18%;
+    --muted-foreground: 205 20% 60%;
+    --accent: 200 85% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 25% 18%;
+    --input: 210 25% 18%;
+    --ring: 200 85% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-serif-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-script {
+    font-family: 'Great Vibes', 'Dancing Script', cursive;
+  }
+  .font-calligraphy {
+    font-family: 'Dancing Script', 'Alex Brush', cursive;
+  }
+  .tracking-luxe {
+    letter-spacing: 0.28em;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .glass {
+    background: rgba(43, 38, 32, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .grain-overlay {
+    position: relative;
+  }
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+    opacity: 0.25;
+  }
+  .grain-overlay > * {
+    position: relative;
+    z-index: 2;
+  }
+  .heritage-line {
+    background: linear-gradient(90deg, transparent, #2AACE2, transparent);
+    height: 1px;
+  }
+  .heritage-line-ms {
+    background: linear-gradient(90deg, transparent, #C87941, transparent);
+    height: 1px;
+  }
+  .heritage-line-te {
+    background: linear-gradient(90deg, transparent, #E91E8C, transparent);
+    height: 1px;
+  }
+  .text-shadow-lux {
+    text-shadow: 0 2px 30px rgba(13, 61, 92, 0.6);
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .animate-pulse-glow-blue {
+    animation: pulseGlowBlue 2s ease-in-out infinite;
+  }
+  @keyframes pulseGlowBlue {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(42, 172, 226, 0.5); }
+    50%       { box-shadow: 0 0 0 8px rgba(42, 172, 226, 0); }
+  }
+  .animate-pulse-glow {
+    animation: pulseGlowBlue 2s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.img-skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(270 20% 92%) 25%,
+    hsl(270 20% 96%) 50%,
+    hsl(270 20% 92%) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #D6EDF8; }
+::-webkit-scrollbar-thumb { background: #2AACE2; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #0D3D5C; }
+
+html { scroll-behavior: smooth; }

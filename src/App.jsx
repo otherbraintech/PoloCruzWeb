@@ -7,7 +7,7 @@ import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import { useBrandHeader } from './hooks/useBrandHeader';
-
+ 
 // Polo Cruz Pages
 import Home from '@/pages/Home';
 import Login from '@/pages/Login';

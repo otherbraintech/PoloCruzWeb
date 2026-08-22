@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/image';
 import { Award, Flame, Heart } from 'lucide-react';
 import { HERITAGE_IMAGE, LOGOS } from '@/data/products';
@@ -25,35 +26,35 @@ export default function BrandStory() {
       </div>
 
       {/* Spacer to push content below the gradient transition zone */}
-      <div className="h-16 md:h-24" />
+      <div className="h-12 md:h-16" />
 
-      <div className="relative max-w-7xl mx-auto pb-12 md:pb-16">
+      <div className="relative max-w-7xl mx-auto pb-6 md:pb-8">
 
         {/* Section label */}
-        <div className="flex items-center gap-4 mb-10 md:mb-14">
+        <div className="flex items-center gap-4 mb-6 md:mb-10">
           <div className="heritage-line w-12" />
           <p className="text-white text-sm tracking-[0.4em] uppercase font-bold drop-shadow-[0_1px_3px_rgba(13,61,92,0.5)]">Nuestra Historia</p>
         </div>
 
         {/* Main editorial block */}
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center mb-14 md:mb-18">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-8 md:mb-10">
           <div className="order-2 md:order-1">
 
             {/* Polo Cruz logo */}
-            <div className="flex items-center gap-4 mb-8">
-              <img src={LOGOS.poloCruz} alt="Polo Cruz SRL" className="w-16 h-16 object-contain" />
+            <div className="flex items-center gap-4 mb-5">
+              <img src={LOGOS.poloCruz} alt="Polo Cruz SRL" className="w-14 h-14 object-contain" />
               <div>
                 <h2 className="font-body font-bold text-2xl text-[#0D3D5C] tracking-wide uppercase">POLO CRUZ SRL</h2>
                 <p className="text-[#2AACE2] text-xs tracking-[0.3em] uppercase">Alimentos Congelados</p>
               </div>
             </div>
 
-            <h3 className="font-serif-display text-3xl md:text-4xl lg:text-5xl text-[#0D3D5C] leading-tight mb-8 text-balance">
+            <h3 className="font-serif-display text-3xl md:text-4xl lg:text-5xl text-[#0D3D5C] leading-tight mb-5 text-balance">
               El sabor que nació en una cocina cruceña
             </h3>
 
-            {/* Story paragraphs — placeholder editorial, listo para editar */}
-            <div className="space-y-5 text-[#0D3D5C]/70 text-base leading-relaxed">
+            {/* Story paragraphs */}
+            <div className="space-y-4 text-[#0D3D5C]/75 text-base leading-relaxed">
               <p>
                 Todo comenzó con una abuela, una receta y el aroma inconfundible del cuñapé
                 recién horneado. En los años 80, en una cocina del corazón de Santa Cruz de
@@ -70,15 +71,18 @@ export default function BrandStory() {
                 de celebración, donde cada torta se elabora con el mismo cuidado y dedicación
                 que nos enseñaron desde el primer horno encendido.
               </p>
-              <p className="text-[#0D3D5C]/40 italic text-sm border-l-2 border-[#2AACE2]/40 pl-4">
-                ✏️ Esta sección de historia será personalizada con la historia real de la empresa.
-              </p>
             </div>
 
             {/* Mini brand logos */}
-            <div className="flex items-center gap-6 mt-8 pt-6 border-t border-[#2AACE2]/20">
-              <img src={LOGOS.milSabores} alt="Mil Sabores" className="w-14 h-14 object-contain" />
-              <img src={LOGOS.tortaExpress} alt="Torta Express" className="w-16 h-12 object-contain" />
+            <div className="flex items-center gap-6 mt-5 pt-4 border-t border-[#2AACE2]/20">
+              <Link to="/milsabores" className="flex items-center gap-2 text-xs font-semibold text-[#C87941] hover:underline">
+                <img src={LOGOS.milSabores} alt="Mil Sabores" className="w-12 h-12 object-contain" />
+                <span>Ver Mil Sabores →</span>
+              </Link>
+              <Link to="/tortaexpress" className="flex items-center gap-2 text-xs font-semibold text-[#E91E8C] hover:underline">
+                <img src={LOGOS.tortaExpress} alt="Torta Express" className="w-14 h-10 object-contain" />
+                <span>Ver Torta Express →</span>
+              </Link>
             </div>
           </div>
 
@@ -98,18 +102,19 @@ export default function BrandStory() {
         </div>
 
         {/* Pillars */}
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {PILLARS.map((pillar, i) => {
             const Icon = pillar.icon;
             return (
-              <div key={i} className="group p-8 border-t-2 border-[#2AACE2]/20 hover:border-[#2AACE2] transition-colors bg-white/50 hover:bg-white/80 rounded-xl">
-                <Icon className="text-[#2AACE2] mb-6 group-hover:scale-110 transition-transform" size={32} strokeWidth={1.5} />
-                <h3 className="font-serif-display text-xl text-[#0D3D5C] mb-3">{pillar.title}</h3>
-                <p className="text-[#0D3D5C]/60 text-sm leading-relaxed">{pillar.text}</p>
+              <div key={i} className="group p-6 border-t-2 border-[#2AACE2]/25 hover:border-[#2AACE2] transition-colors bg-white/70 hover:bg-white rounded-2xl shadow-sm">
+                <Icon className="text-[#2AACE2] mb-3 group-hover:scale-110 transition-transform" size={26} strokeWidth={1.5} />
+                <h3 className="font-serif-display text-lg text-[#0D3D5C] mb-2">{pillar.title}</h3>
+                <p className="text-[#0D3D5C]/70 text-sm leading-relaxed">{pillar.text}</p>
               </div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

@@ -37,7 +37,9 @@ export default function Navbar() {
     if (location.pathname !== '/' && location.pathname !== '/historia' && location.pathname !== '/contacto') {
       navigate(link.path || '/');
       setTimeout(() => {
-        if (link.href && link.href !== '#') {
+        if (link.href === '#contacto' || link.path === '/contacto') {
+          window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        } else if (link.href && link.href !== '#') {
           document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
         }
       }, 150);
@@ -47,6 +49,8 @@ export default function Navbar() {
       }
       if (link.href === '#') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (link.href === '#contacto' || link.path === '/contacto') {
+        window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
       } else {
         document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
       }

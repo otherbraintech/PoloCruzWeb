@@ -22,18 +22,23 @@ export default function Home() {
     const target = SECTIONS.find((s) => s.path === path || s.aliases.includes(path));
 
     if (target && target.id !== 'inicio') {
-      const el = document.getElementById(target.id);
-      if (el) {
-        isAutoScrolling.current = true;
-        const timer = setTimeout(() => {
-          el.scrollIntoView({ behavior: 'smooth' });
-          const releaseTimer = setTimeout(() => {
-            isAutoScrolling.current = false;
-          }, 800);
-          return () => clearTimeout(releaseTimer);
-        }, 150);
-        return () => clearTimeout(timer);
-      }
+      isAutoScrolling.current = true;
+      const timer = setTimeout(() => {
+        if (target.id === 'contacto') {
+          window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        } else {
+          const el = document.getElementById(target.id);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+
+        const releaseTimer = setTimeout(() => {
+          isAutoScrolling.current = false;
+        }, 800);
+        return () => clearTimeout(releaseTimer);
+      }, 150);
+      return () => clearTimeout(timer);
     }
   }, [location.pathname]);
 
@@ -42,17 +47,24 @@ export default function Home() {
     const handleScroll = () => {
       if (isAutoScrolling.current) return;
 
-      const viewportMiddle = window.scrollY + window.innerHeight * 0.35;
-      let activeSection = SECTIONS[0]; // Default to '/' (inicio)
+      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+      let activeSection;
 
-      for (let i = SECTIONS.length - 1; i >= 0; i--) {
-        const section = SECTIONS[i];
-        const el = document.getElementById(section.id);
-        if (el) {
-          const top = el.offsetTop;
-          if (viewportMiddle >= top - 100) {
-            activeSection = section;
-            break;
+      if (isBottom) {
+        activeSection = SECTIONS[SECTIONS.length - 1]; // Contacto / Footer
+      } else {
+        const viewportMiddle = window.scrollY + window.innerHeight * 0.35;
+        activeSection = SECTIONS[0]; // Default to '/' (inicio)
+
+        for (let i = SECTIONS.length - 1; i >= 0; i--) {
+          const section = SECTIONS[i];
+          const el = document.getElementById(section.id);
+          if (el) {
+            const top = el.offsetTop;
+            if (viewportMiddle >= top - 100) {
+              activeSection = section;
+              break;
+            }
           }
         }
       }

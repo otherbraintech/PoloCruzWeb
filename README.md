@@ -68,6 +68,12 @@ After pushing your changes to git, open the Base44 dashboard and publish the app
 base44 dashboard open
 ```
 
+## Despliegue en Vercel (SPA Routing)
+
+Para evitar errores `404: NOT_FOUND` al acceder directamente a subrutas como `/tortaexpress` o `/milsabores`, se incluye el archivo `vercel.json` configurando la reescritura (*rewrite*) de todas las rutas hacia `/index.html`.
+
+Para más detalles, consulta [docs/DEPLOYMENT.md](file:///d:/Users/ludwi/Documents/workspace/POLO/polocruz_website-main/docs/DEPLOYMENT.md).
+
 ## Docs & Support
 
 Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
@@ -75,3 +81,4 @@ Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.
 Base44 CLI command reference: [https://docs.base44.com/developers/references/cli/commands/introduction](https://docs.base44.com/developers/references/cli/commands/introduction)
 
 Support: [https://app.base44.com/support](https://app.base44.com/support)
+
